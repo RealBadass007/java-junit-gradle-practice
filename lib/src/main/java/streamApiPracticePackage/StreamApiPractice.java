@@ -3,6 +3,7 @@ package streamApiPracticePackage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -26,6 +27,9 @@ public class StreamApiPractice {
 		newListOfSortedNums.remove(0);
 		
 		System.out.println(newListOfSortedNums);
+		
+		//LIST OF 5 RANDOM INTEGERS WITHIN RANGE OF 0 to 199
+		List<Integer> numsList = new Random().ints(5, 0, 200).boxed().collect(Collectors.toList());
 		
 	}
 	

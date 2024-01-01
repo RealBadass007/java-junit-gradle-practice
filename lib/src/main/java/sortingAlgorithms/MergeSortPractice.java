@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class MergeSortPractice {
 
-public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		List<Integer> numsList = new Random().ints(5, 0, 200).boxed().collect(Collectors.toList());
 		

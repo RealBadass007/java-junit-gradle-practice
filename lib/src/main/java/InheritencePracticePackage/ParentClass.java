@@ -5,6 +5,8 @@ public class ParentClass {
 	int id;
 	String name;
 	
+	int someVariable = 5;
+	
 	ParentClass() {
 		System.out.println("Inside ParentClass no param constructor");
 	}

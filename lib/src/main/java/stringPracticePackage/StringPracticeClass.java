@@ -1,5 +1,10 @@
 package stringPracticePackage;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
 public class StringPracticeClass {
 
 	public static void main(String[] args) {
@@ -45,7 +50,6 @@ public class StringPracticeClass {
 		//string object will always take more time to execute than string literal
 		
 		System.out.println("str4 == str5 => " + (str4 == str5));
-		
 		
 	}
 	

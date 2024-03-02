@@ -28,6 +28,7 @@ public class PracticeClass {
 		
 		//WE WON'T RECEIVE THIS EXCEPTION IN CASE OF CLASS OR INSIANCE VARIABLES
 		System.out.println(classVariable2NotInitialized); // <- This line won't throw exception
+		
 	}
 }
 

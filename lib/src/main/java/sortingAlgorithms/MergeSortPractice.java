@@ -10,6 +10,8 @@ public class MergeSortPractice {
 
 	public static void main(String[] args) {
 		
+		//THIS IS FOR ARRAYLIST. HAVE CREATED A SEPARATE PRACTICE CLASS FOR JAVA ARRAYS
+		
 		List<Integer> numsList = new Random().ints(5, 0, 200).boxed().collect(Collectors.toList());
 		
 		List<Integer> ogNumsList = new ArrayList<>(numsList);
@@ -51,17 +53,17 @@ public class MergeSortPractice {
 		//List<Integer> leftArr  = numsList.subList(0, mid);				//.subList() method creates a view of the original list
 		//List<Integer> rightArr  = numsList.subList(mid, numsList.size());	// and NOT an entirely new list
 		
-		List<Integer> leftArr  = new ArrayList<Integer>(numsList.subList(0, mid));
-		mergeSort(leftArr);
+		List<Integer> leftArrList  = new ArrayList<Integer>(numsList.subList(0, mid));
+		mergeSort(leftArrList);
 		
-		List<Integer> rightArr  = new ArrayList<Integer>(numsList.subList(mid, numsList.size()));
-		mergeSort(rightArr);
+		List<Integer> rightArrList  = new ArrayList<Integer>(numsList.subList(mid, numsList.size()));
+		mergeSort(rightArrList);
 		
-		merge(numsList, leftArr, rightArr);
+		merge(numsList, leftArrList, rightArrList);
 
 	}
 
-	private static void merge(List<Integer> numsList, List<Integer> leftArr, List<Integer> rightArr) {
+	private static void merge(List<Integer> numsList, List<Integer> leftArrList, List<Integer> rightArrList) {
 		
 		int i = 0;
 		int j = 0;
@@ -71,20 +73,20 @@ public class MergeSortPractice {
 		// instead of creating a new arraylist, we'll just utilize the original sub-array 
 		//which we cut in two halves
 		
-		while(i < leftArr.size() && j < rightArr.size()) {
-			if(leftArr.get(i) <= rightArr.get(j)) {
-				numsList.set(x++, leftArr.get(i++));
+		while(i < leftArrList.size() && j < rightArrList.size()) {
+			if(leftArrList.get(i) <= rightArrList.get(j)) {
+				numsList.set(x++, leftArrList.get(i++));
 			} else {
-				numsList.set(x++, rightArr.get(j++));
+				numsList.set(x++, rightArrList.get(j++));
 			}
 		}
 		
-		while(i < leftArr.size()) {
-			numsList.set(x++, leftArr.get(i++));
+		while(i < leftArrList.size()) {
+			numsList.set(x++, leftArrList.get(i++));
 		}
 		
-		while(j < rightArr.size()) {
-			numsList.set(x++, rightArr.get(j++));
+		while(j < rightArrList.size()) {
+			numsList.set(x++, rightArrList.get(j++));
 		}
 	}
 	

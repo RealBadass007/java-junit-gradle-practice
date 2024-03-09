@@ -2,6 +2,7 @@ package sortingAlgorithms;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -19,11 +20,13 @@ class MergeSortPracticeTest {
 		
 		List<Integer> numsList = new Random().ints(10, 0, 200).boxed().collect(Collectors.toList());
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		Collections.sort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Collections.sort(ogNumsList);
+		
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -31,12 +34,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithFiftyElements() {
 		
 		List<Integer> numsList = new Random().ints(50, 0, 500).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -44,12 +49,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithThousandElements() {
 		
 		List<Integer> numsList = new Random().ints(1000, 0, 10000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -58,12 +65,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithTenThousandElements() {
 		
 		List<Integer> numsList = new Random().ints(10000, 0, 1000000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -72,12 +81,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithTenLakhElements() {
 		
 		List<Integer> numsList = new Random().ints(1000000, 0, 1000000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -85,12 +96,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithThreeElements() {
 		
 		List<Integer> numsList = new Random().ints(3, 0, 1000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -98,12 +111,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithTwoElements() {
 		
 		List<Integer> numsList = new Random().ints(2, 0, 1000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -111,12 +126,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithOneElements() {
 		
 		List<Integer> numsList = new Random().ints(1, 0, 1000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 	
@@ -124,12 +141,14 @@ class MergeSortPracticeTest {
 	void sortingTestWithZeroElements() {
 		
 		List<Integer> numsList = new Random().ints(0, 0, 1000).boxed().collect(Collectors.toList());
+
+		List<Integer> ogNumsList = new ArrayList<Integer>(numsList);
 		
-		List<Integer> mySortedNumsList = MergeSortPractice.mergeSort(numsList);
+		MergeSortPractice.mergeSort(numsList);
 		
-		Collections.sort(numsList);
+		Collections.sort(ogNumsList);
 		
-		Assertions.assertIterableEquals(numsList, mySortedNumsList);
+		Assertions.assertIterableEquals(ogNumsList, numsList);
 	
 	}
 

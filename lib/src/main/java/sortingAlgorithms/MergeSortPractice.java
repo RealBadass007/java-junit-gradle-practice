@@ -48,18 +48,16 @@ public class MergeSortPractice {
 		
 		int mid = numsList.size() / 2;
 		
-		//List<Integer> leftArr  = numsList.subList(0, mid);					//.subList() method creates a view of the original list
+		//List<Integer> leftArr  = numsList.subList(0, mid);				//.subList() method creates a view of the original list
 		//List<Integer> rightArr  = numsList.subList(mid, numsList.size());	// and NOT an entirely new list
 		
 		List<Integer> leftArr  = new ArrayList<Integer>(numsList.subList(0, mid));
-		
-		List<Integer> leftSortedArr  = mergeSort(leftArr);
+		mergeSort(leftArr);
 		
 		List<Integer> rightArr  = new ArrayList<Integer>(numsList.subList(mid, numsList.size()));
+		mergeSort(rightArr);
 		
-		List<Integer> rightSortedArr = mergeSort(rightArr);
-		
-		List<Integer> sortedSubArr = merge(numsList, leftSortedArr, rightSortedArr);
+		List<Integer> sortedSubArr = merge(numsList, leftArr, rightArr);
 		
 		return sortedSubArr;
 	}

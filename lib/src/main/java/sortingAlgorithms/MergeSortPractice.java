@@ -40,10 +40,10 @@ public class MergeSortPractice {
 		
 	}
 
-	static List<Integer> mergeSort(List<Integer> numsList) {
+	static void mergeSort(List<Integer> numsList) {
 		
 		if(numsList.size() < 2) {
-			return numsList;
+			return;
 		}
 		
 		int mid = numsList.size() / 2;
@@ -57,39 +57,35 @@ public class MergeSortPractice {
 		List<Integer> rightArr  = new ArrayList<Integer>(numsList.subList(mid, numsList.size()));
 		mergeSort(rightArr);
 		
-		List<Integer> sortedSubArr = merge(numsList, leftArr, rightArr);
-		
-		return sortedSubArr;
+		merge(numsList, leftArr, rightArr);
+
 	}
 
-	private static List<Integer> merge(List<Integer> numsList, List<Integer> leftArr, List<Integer> rightArr) {
+	private static void merge(List<Integer> numsList, List<Integer> leftArr, List<Integer> rightArr) {
 		
 		int i = 0;
 		int j = 0;
 		
 		int x = 0;
 		
-		List<Integer> sortedSubArr = numsList;
 		// instead of creating a new arraylist, we'll just utilize the original sub-array 
 		//which we cut in two halves
 		
 		while(i < leftArr.size() && j < rightArr.size()) {
 			if(leftArr.get(i) <= rightArr.get(j)) {
-				sortedSubArr.set(x++, leftArr.get(i++));
+				numsList.set(x++, leftArr.get(i++));
 			} else {
-				sortedSubArr.set(x++, rightArr.get(j++));
+				numsList.set(x++, rightArr.get(j++));
 			}
 		}
 		
 		while(i < leftArr.size()) {
-			sortedSubArr.set(x++, leftArr.get(i++));
+			numsList.set(x++, leftArr.get(i++));
 		}
 		
 		while(j < rightArr.size()) {
-			sortedSubArr.set(x++, rightArr.get(j++));
+			numsList.set(x++, rightArr.get(j++));
 		}
-		
-		return sortedSubArr;
 	}
 	
 	

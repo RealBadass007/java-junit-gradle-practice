@@ -51,6 +51,18 @@ public class StringPracticeClass {
 		
 		System.out.println("str4 == str5 => " + (str4 == str5));
 		
+		
+		
+		
+		
+		String str6 = new String("Chirag");
+		String str7 = "Chirag";
+		String str8 = str6.intern();
+		
+		System.out.println(str6 == str7);
+		System.out.println(str6 == str8);
+		System.out.println(str7 == str8);
+		
 	}
 	
 }

@@ -37,4 +37,12 @@ public class ChildClass extends ParentClass{
 		System.out.println("Child variable hides parent variable with same name. This is called Variable Hiding");
 	}
 	
+	//Since the return type of getName() method in Parent class is String, the return type of the same method with same arguments
+	//has to be same OR!!!
+	//It can be a subtype of the parent class method. This is called covariant return type
+	
+//	public int getName() {
+//		return 2;
+//	}
+	
 }

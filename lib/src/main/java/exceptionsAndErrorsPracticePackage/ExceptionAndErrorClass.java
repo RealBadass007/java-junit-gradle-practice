@@ -1,8 +1,8 @@
-package exceptionsPracticePackage;
+package exceptionsAndErrorsPracticePackage;
 
 import java.io.IOException;
 
-public class ExceptionClass {
+public class ExceptionAndErrorClass {
 
 	//checked Exception. Have to declare "throws" in method signature
 	public void throwCheckedException() throws IOException {
@@ -21,7 +21,7 @@ public class ExceptionClass {
 	
 	//The base class of all Exceptions - java.lang.Exception is also a checked Exception! Have to declare "throws" in method signature
 	//Runtime Exceptions & Checked both come under java.lang.Exception.
-	public void throwException() throws java.lang.Exception {
+	public void throwJavaLangException() throws java.lang.Exception {
 		throw new java.lang.Exception();
 	}
 	

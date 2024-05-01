@@ -19,4 +19,8 @@ public class ParentClass {
 		System.out.println("Inside ParentClass two params constructor (id) => " + id + " name => " + name);
 	}
 	
+	public String getName() {
+		return "Name";
+	}
+	
 }

@@ -5,19 +5,24 @@ import java.util.concurrent.Callable;
 
 public class CallableAddNumbers implements Callable<Integer> {
 	
-	private List<Integer> arrList;
-	int l;
-	int r;
+	private CustomArrayPartitionDTO customArrayPartitionDTO;
 	
-	CallableAddNumbers(List<Integer> arrList, int l, int r) {
-		this.arrList = arrList;
-		this.l = l;
-		this.r = r;
+	CallableAddNumbers(CustomArrayPartitionDTO customArrayPartitionDTO) {
+		this.customArrayPartitionDTO = customArrayPartitionDTO;
 	}
+
+	public CallableAddNumbers(int l, int r, List<Integer> arrList) {
+		this.customArrayPartitionDTO = new CustomArrayPartitionDTO(l, r, arrList);
+	}
+
+
 
 	@Override
 	public Integer call() throws Exception {
 		int sum = 0;
+		int l = customArrayPartitionDTO.l;
+		int r = customArrayPartitionDTO.r;
+		List<Integer> arrList = customArrayPartitionDTO.list;
 		for(int i = l; i <= r && i < arrList.size() ; i++) {
 			sum += arrList.get(i);
 		}

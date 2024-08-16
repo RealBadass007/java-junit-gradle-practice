@@ -50,6 +50,13 @@ public class mainClass {
 		
 		System.out.println("After sorting listOfPlayers by name => " + listOfPlayers);
 		
+		//
+		Comparator<Player> compareByNameAndThenRanking = Comparator.comparing(Player::getName).thenComparing(Player::getRanking);
+		
+		Collections.sort(listOfPlayers, compareByNameAndThenRanking);
+		
+		System.out.println("After sorting listOfPlayers by name => " + listOfPlayers);
+		
 	}
 	
 }

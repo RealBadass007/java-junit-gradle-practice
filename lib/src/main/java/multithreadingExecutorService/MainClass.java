@@ -125,53 +125,83 @@ public class MainClass {
 		
 		List<Future<Integer>> listOfFutureSums = new ArrayList<>();
 		
+//		for(int i = 0; i < threadPoolSize; i++) {
+//			
+////			System.out.println("old l => " + l);
+////			System.out.println("old r => " + r);
+//			
+//			addNumbers = new CallableAddNumbers(l, r, bigList);
+//			listOfFutureSums.add(execSer.submit(addNumbers));			//always use submit for class that implements Callable
+//			l = r + 1;
+//			r = r + bigList.size() / threadPoolSize + 1;
+//			
+////			System.out.println("new l => " + l);
+////			System.out.println("new r => " + r);
+////			System.out.println();
+//		}
+//		
+//		while(true) {
+//			
+//			boolean isOperationComplete = false;
+//			
+//			for(int i = 0; i < listOfFutureSums.size() ; i++) {
+//				if(!listOfFutureSums.get(i).isDone()) {
+//					break;
+//				}
+//				isOperationComplete = true;
+//			}
+//			
+//			if(isOperationComplete) {
+//				int sum = 0;
+//				
+//				for(int i = 0; i < listOfFutureSums.size();i++) {
+//					try {
+//						sum += listOfFutureSums.get(i).get();
+//					} catch (InterruptedException | ExecutionException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//				
+//				System.out.println("Sum => " + sum);
+//				
+//				break;
+//			}
+//			
+//		}
+		
+		
+		//USING INVOKE ALL!
+		
+		List<CallableAddNumbers> callableList = new ArrayList<>();
+		
 		for(int i = 0; i < threadPoolSize; i++) {
 			
-//			System.out.println("old l => " + l);
-//			System.out.println("old r => " + r);
+			callableList.add(new CallableAddNumbers(new CustomArrayPartitionDTO(l, r, bigList)));
 			
-			addNumbers = new CallableAddNumbers(bigList, l, r);
-			listOfFutureSums.add(execSer.submit(addNumbers));			//always use submit for class that implements Callable
 			l = r + 1;
 			r = r + bigList.size() / threadPoolSize + 1;
 			
-//			System.out.println("new l => " + l);
-//			System.out.println("new r => " + r);
-//			System.out.println();
 		}
 		
-		
-//		System.out.println("Hi");
-		
-		while(true) {
-			
-			boolean isOperationComplete = false;
-			
-			for(int i = 0; i < listOfFutureSums.size() ; i++) {
-				if(!listOfFutureSums.get(i).isDone()) {
-					break;
-				}
-				isOperationComplete = true;
-			}
-			
-			if(isOperationComplete) {
-				int sum = 0;
-				
-				for(int i = 0; i < listOfFutureSums.size();i++) {
-					try {
-						sum += listOfFutureSums.get(i).get();
-					} catch (InterruptedException | ExecutionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				
-				System.out.println("Sum => " + sum);
-				
-				break;
-			}
-			
+		try {
+			listOfFutureSums = execSer.invokeAll(callableList);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+		
+		int sum = 0;
+		
+		for(int i = 0; i < listOfFutureSums.size(); i++) {
+			try {
+				sum += listOfFutureSums.get(i).get();
+			} catch (InterruptedException | ExecutionException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println("Sum2 => " + sum);
+			
 	}
 	
 }

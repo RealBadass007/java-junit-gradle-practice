@@ -14,18 +14,14 @@ public class StreamApiFunctions {
 		//https://www.geeksforgeeks.org/stream-in-java/
 		//https://www.youtube.com/watch?v=t1-YZ6bF-g0
 		
-		List<Integer> listOfNums = Arrays.asList(1,2,3,4,5,6,7,8,9);
+		List<Integer> listOfNums = Arrays.asList(1,2,3,4,5,6,7,8,9,1,2);
 		
 		
 		/*
-		 * 		INTERMEDIATE OPERATIONS BELOW (Functions that return a stream)
+		 * 		INTERMEDIATE OPERATIONS BELOW (Functions or Operations that transform a stream into another stream)
 		 * 		These operations can be performed one after another
 		 */
 		
-		
-		//collect function
-		List<Integer> newListOfNums = listOfNums.stream().collect(Collectors.toList());
-		System.out.println("After collect => " + newListOfNums);
 		
 		//FI = Functional Interface
 		
@@ -50,9 +46,29 @@ public class StreamApiFunctions {
 		System.out.println("After skipping => " + listNumsAfterSkippingFirstNElements);
 		
 		
+		//distinct
+		List<Integer> listDistinctNums = listOfNums.stream().distinct().collect(Collectors.toList());
+		System.out.println("Distinct Nums => " + listDistinctNums);
 		
 		
-		//flatMap, anyMatch, distinct, findFirst
+		//.flatMap
+		//2d List of Nums
+		
+		List<List<Integer>> TwoDimensionListOfNums = Arrays.asList(
+															Arrays.asList(1,2,3,4),
+															Arrays.asList(5,6,7),
+															Arrays.asList(8,9,1,2)
+														);
+		List<Integer> listFlatNums = TwoDimensionListOfNums.stream().flatMap(x -> x.stream()).collect(Collectors.toList());
+		System.out.println("Distinct Nums => " + listFlatNums);
+		
+		
+		//boxed (used to convert primitive type to their wrapper class instances. eg int -> Integer)
+		int[] normalIntArr = {1,2,3,4,5,6,7};
+		List<Integer> intList = Arrays.stream(normalIntArr).boxed().collect(Collectors.toList());
+		System.out.println("Collected Boxed ints => " + intList);
+		
+		//anyMatch, findFirst
 		//https://www.baeldung.com/java-stream-findfirst-vs-findany
 		
 		
@@ -60,6 +76,17 @@ public class StreamApiFunctions {
 		 * 		TERMINAL OPERATIONS BELOW (Functions with return type as void or return a single value)
 		 * 		Only one terminal operation is allowed at the end of one or more intermediate operations
 		 */
+		
+		
+		/*
+		 * 		Streams are lazily executed. This means that the operations 
+		 * 		on the stream are not executed until a terminal operation is called !!!
+		 * 		
+		 */
+		
+		//collect function
+		List<Integer> newListOfNums = listOfNums.stream().collect(Collectors.toList());
+		System.out.println("After collect => " + newListOfNums);
 		
 		//forEach
 		listOfNums.stream().forEach(System.out::print);

@@ -1,5 +1,7 @@
 package InheritencePracticePackage;
 
+import java.util.List;
+
 public class ParentClass {
 
 	int id;
@@ -21,6 +23,10 @@ public class ParentClass {
 	
 	public String getName() {
 		return "Name";
+	}
+	
+	public List<Integer> covarientInheritence() {
+		return null;
 	}
 	
 }

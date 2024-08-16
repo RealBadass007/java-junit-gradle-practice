@@ -1,5 +1,8 @@
 package InheritencePracticePackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChildClass extends ParentClass{
 
 	int id;
@@ -44,5 +47,9 @@ public class ChildClass extends ParentClass{
 //	public int getName() {
 //		return 2;
 //	}
+	
+	public ArrayList<Integer> covarientInheritence() {
+		return null;
+	}
 	
 }

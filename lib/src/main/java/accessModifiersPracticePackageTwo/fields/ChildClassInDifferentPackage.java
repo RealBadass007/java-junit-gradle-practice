@@ -20,10 +20,13 @@ public void printParentClassFields() {
 		
 		
 		
-		//ALSO NOTE!! Accessing a protected field/method via instance is illegal in different package!
-		//Will throw compiler error
+		//ALSO NOTE!! Accessing a protected field/method via parent class instance or child class instance 
+		//is illegal in different package! Will throw compiler error !!
 //		System.out.println("In ChildClassInDifferentPackage method. Accessing new ChildClassInSamePackage().protectedField => " 
 //		+ new ChildClassInSamePackage().protectedField);
+		
+//		System.out.println("In ChildClassInDifferentPackage method. Accessing new ChildClassInSamePackage().protectedField => " 
+//		+ new ParentClass().protectedField);
 		
 	}
 	

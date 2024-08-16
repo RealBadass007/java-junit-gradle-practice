@@ -2,8 +2,11 @@ package streamApiPracticePackage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -43,19 +46,27 @@ public class StreamApiPractice {
 		
 		
 		
-		//Adding all elements in parallel stream list using Stream API
-		List<Integer> newListOfMillionNums = IntStream.range(1, 150000001).boxed().collect(Collectors.toList());
-		long startTime1 = System.nanoTime();
-		int sum1 = newListOfMillionNums.stream().reduce(0, (a, b) -> a + b);
-		long endTime1 = System.nanoTime();
+//		//Adding all elements in parallel stream list using Stream API
+//		List<Integer> newListOfMillionNums = IntStream.range(1, 150000001).boxed().collect(Collectors.toList());
+//		long startTime1 = System.nanoTime();
+//		int sum1 = newListOfMillionNums.stream().reduce(0, (a, b) -> a + b);
+//		long endTime1 = System.nanoTime();
+//		
+//		System.out.println((endTime1 - startTime1) / 1_000_000_000.0);
+//		
+//		long startTime2 = System.nanoTime();
+//		int sum2 = newListOfMillionNums.parallelStream().reduce(0, (a, b) -> a + b);
+//		long endTime2 = System.nanoTime();
+//		
+//		System.out.println((endTime2 - startTime2) / 1_000_000_000.0);
+//		System.out.println();
 		
-		System.out.println((endTime1 - startTime1) / 1_000_000_000.0);
 		
-		long startTime2 = System.nanoTime();
-		int sum2 = newListOfMillionNums.parallelStream().reduce(0, (a, b) -> a + b);
-		long endTime2 = System.nanoTime();
+		//// Sorting based on number of occurances
+		List<String> strlist = Arrays.asList("Chirag", "Bangera", "Purshottam", "Chirag", "Suma", "Purshottam", "Lokaya");
 		
-		System.out.println((endTime2 - startTime2) / 1_000_000_000.0);
+		strlist.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+		.entrySet().stream().sorted(Entry.comparingByValue(Comparator.reverseOrder())).forEach( (pair) -> System.out.println(pair.getKey()));
 		
 	}
 	
